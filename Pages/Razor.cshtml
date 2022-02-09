@@ -1,0 +1,61 @@
+﻿@page
+@model Razorpage.Pages.RazorModel
+@{
+    ViewData["Title"] = "Razor";
+}
+
+<!-- div som omsluter i9nnehåll -->
+<div>
+    <h1>Razor</h1>
+    <h2>Kurser Jag har läst</h2>
+
+<!-- kurser i sträng -->
+
+@{
+    string[] courses = {"DT057G, Webbutveckling I",
+    "DT093G, Webbutveckling II",
+    "IG021G, Affärsplaner och kommersialisering",
+    "IK060G, Projektledning",
+    "DT152G, Webbdesign för CMS",
+    "DT003G, Databaser",
+    "DT163G, Digital bildbehandling för webb",
+    "GD008G, Typografi och form för webb",
+    "DT084G, Introduktion till programmering i JavaScript"};
+}
+
+<!-- loop som skriver ut kurser -->
+
+@foreach (var course in courses)
+{
+    <ul>
+        <li>@course</li>
+    </ul>
+}
+
+<!-- datum och tid -->
+<div id="date">
+Just nu är klockan: 
+@DateTime.Now.ToString("HH:mm"),
+den
+@DateTime.Now.ToString("dd MMMM yyyy")
+
+<br>
+
+<!-- kontrollerar om det är måndag eller inte och skriver ut svar -->
+@{var day = DateTime.Now;}
+
+@if(day.DayOfWeek == DayOfWeek.Monday)
+{
+    <p>Det är måndag idag</p>
+} else {
+    <p>Det är inte måndag idag</p>
+}
+
+</div>
+</div>
+
+
+
+
+
+

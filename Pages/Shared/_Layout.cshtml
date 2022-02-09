@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="se">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - moment 1.2</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+<!-- sidhuvud -->
+    <header>
+        <img class="img_logga" src="https://www.snakeriveranimalshelter.org/wp-content/uploads/example-logo.jpg" alt="logga">
+        <div id="div_date">Dagens datum är
+            @DateTime.Now.ToString("yyyy/MM/dd")
+        </div>
+    </header>
+
+<!-- div som omsluter sidans innehåll -->
+<div id="content">
+
+<!-- meny till vänster -->
+    <div id="left">
+        <ul id="menu">
+           <li class="menu_list"><a class="menu_link" asp-page="Index">Hem</a></li> 
+           <li class="menu_list"><a class="menu_link" asp-page="Razor">Razor</a></li> 
+           <li class="menu_list"><a class="menu_link" asp-page="om">Om mig</a></li> 
+        </ul>
+    </div>
+
+<!-- Innehåll till höger -->
+    <div id="right">
+        <div class="container">@RenderBody()</div>
+    </div>
+
+        <!-- Sidfot -->
+    <footer>
+        Av: Anna Kristensen - E-post: ankr1501@student.miun.se
+    </footer>
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
